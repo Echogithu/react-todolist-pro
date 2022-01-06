@@ -3,7 +3,7 @@ import React from "react";
 import "./index.scss";
 
 function TodoItem(props) {
-  const { data } = props;
+  const { data, openCheckModal } = props;
   return (
     <li className="todo-item">
       <div className="check-box">
@@ -11,7 +11,7 @@ function TodoItem(props) {
         <span className="content">{data.content}</span>
       </div>
       <div className="btn-group">
-        <button className="btn btn-primary">查看</button>
+        <button className="btn btn-primary" onClick={() => openCheckModal(data.id)}>查看</button>
         <button className="btn btn-warning">编辑</button>
         <button className="btn btn-danger">删除</button>
       </div>
