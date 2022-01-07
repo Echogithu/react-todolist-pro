@@ -4,12 +4,14 @@ import "./index.scss";
 
 import Modal from "../";
 
+import { formatDataTime } from "../../../libs/utils";
+
 function CheckModal(props) {
   const { isShowCheckModal, data, closeModal } = props;
 
   return (
-    <Modal isShowCheckModal={isShowCheckModal} modalTitle="查看事件">
-      <p className="topic">时间：{data.id}</p>
+    <Modal isShowModal={isShowCheckModal} modalTitle="查看事件">
+      <p className="topic">时间：{formatDataTime(data.id)}</p>
       <p className="topic">内容：{data.content}</p>
       <p className="topic">状态：{data.completed ? "已完成" : "未完成"}</p>
       <button className="btn btn-primary comfirm-btn" onClick={closeModal}>
@@ -18,5 +20,5 @@ function CheckModal(props) {
     </Modal>
   );
 }
-   
+
 export default CheckModal;
